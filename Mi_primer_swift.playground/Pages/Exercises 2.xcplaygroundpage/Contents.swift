@@ -56,6 +56,7 @@ case let (r,255,b) : ("red: \(r),max green, blue:\(b)")
 default: break
 }
 
+//2
 let rango = (0,7)
 
 switch rango {

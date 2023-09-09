@@ -19,9 +19,10 @@ let intervals = stride(from: 0,to: 20, by:5)
 for i in intervals{
     print(i)
 }
-//hasta 20
+//hasta 60
 
-let intervals2 = stride(from: 0,through: 20, by:5)
+//3
+let intervals2 = stride(from: 0,through: 60, by:15)
 for i in intervals2{
     print(i)
 }

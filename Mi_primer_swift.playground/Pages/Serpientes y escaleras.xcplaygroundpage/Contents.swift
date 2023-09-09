@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 
+//4
 import Foundation
 
 let tablero = [13: 3, 18: 7, 21: 10, 23: 15,2: 10, 5: 16, 8: 17, 9: 11]

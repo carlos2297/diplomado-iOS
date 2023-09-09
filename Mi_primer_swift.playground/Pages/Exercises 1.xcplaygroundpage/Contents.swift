@@ -156,7 +156,7 @@ var value = number == 2 ? number : 4
 
 var weather = "lluvia"
 var time = 1
-
+//1
 //close_range
 var dark = Array(0...6) + Array(19...23)
 print(dark)
