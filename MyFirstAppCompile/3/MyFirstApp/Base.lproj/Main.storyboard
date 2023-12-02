@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="AUf-eo-aqg">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" id="6gC-YD-7aF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZNe-rz-b2f">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HSS-2G-H95"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iks-r8-Oro"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EdE-jo-I7J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2732" y="751"/>
+        </scene>
+        <!--Image Static View Controller-->
+        <scene sceneID="gbl-fv-hRl">
+            <objects>
+                <viewController storyboardIdentifier="imageViewController" id="zfi-BN-5tt" customClass="imageStaticViewController" customModule="MyFirstApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="47p-Lg-ywR">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1HG-W6-Uzw">
+                                <rect key="frame" x="0.0" y="59" width="430" height="839"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEV-Lk-UT7" customClass="CaptionImage" customModule="MyFirstApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="279.66666666666669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoX-A6-DWu" customClass="CaptionImage" customModule="MyFirstApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="279.66666666666663" width="430" height="279.66666666666663"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztY-eG-5Cg" customClass="CaptionImage" customModule="MyFirstApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="559.33333333333337" width="430" height="279.66666666666663"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0lc-Go-s2n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1HG-W6-Uzw" firstAttribute="top" secondItem="0lc-Go-s2n" secondAttribute="top" id="ChD-VD-kCz"/>
+                            <constraint firstItem="1HG-W6-Uzw" firstAttribute="top" secondItem="0lc-Go-s2n" secondAttribute="top" id="JfV-BM-bzz"/>
+                            <constraint firstItem="1HG-W6-Uzw" firstAttribute="top" secondItem="0lc-Go-s2n" secondAttribute="top" id="dm5-de-MtC"/>
+                            <constraint firstItem="1HG-W6-Uzw" firstAttribute="leading" secondItem="0lc-Go-s2n" secondAttribute="leading" id="pUM-Vu-OAa"/>
+                            <constraint firstItem="0lc-Go-s2n" firstAttribute="trailing" secondItem="1HG-W6-Uzw" secondAttribute="trailing" id="tQB-1D-rSF"/>
+                            <constraint firstItem="0lc-Go-s2n" firstAttribute="bottom" secondItem="1HG-W6-Uzw" secondAttribute="bottom" id="vuR-46-dLe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NC3-NK-hjM">
+                        <barButtonItem key="rightBarButtonItem" title="share" image="square.and.arrow.up.on.square.fill" catalog="system" id="oKR-mV-b9k">
+                            <connections>
+                                <action selector="segueToShare:" destination="zfi-BN-5tt" id="ZKD-J2-SLo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="firstCaptionImage" destination="mEV-Lk-UT7" id="lyo-4H-9k4"/>
+                        <outlet property="secondCaptionImage" destination="SoX-A6-DWu" id="wIx-pL-RhF"/>
+                        <outlet property="thirdCaptionImage" destination="ztY-eG-5Cg" id="rCj-Pc-LAj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofA-la-ghd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2718" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up.on.square.fill" catalog="system" width="121" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
