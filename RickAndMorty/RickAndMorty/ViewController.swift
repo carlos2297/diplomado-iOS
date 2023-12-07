@@ -11,10 +11,12 @@ class ViewController: UIViewController {
     
     
     var currentPage = 1
+    var totalPages = 0
+    
     
     let restClient = RESTClient<PaginatedResponse<Character>>(client: Client("https://rickandmortyapi.com"))
-   
     
+   
     var characters: [Character]? {
         didSet {
             tableView.reloadData()
@@ -23,28 +25,24 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var nextPageButton: UIButton!
+    @IBOutlet weak var currentPageLabel: UILabel!
+    
+    @IBOutlet weak var totalPagesLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        loadData()
-        
-    }
-    
-    func loadData() {
-        restClient.show("/api/character/",page:currentPage) { response in
-        self.characters = response.results
+        tableView.prefetchDataSource = self
+        restClient.show("/api/character/", page: currentPage) { response in
+                self.characters = response.results
+                self.totalPagesLabel.text = String(response.info.pages)
+                self.totalPages = response.info.pages
         }
-    }
+        currentPageLabel.text = String(currentPage)
+     }
     
-    
-    @IBAction func nextPageButtonTapped(_ sender: UIButton) {
-        currentPage += 1
-        loadData()
-    }
     
 }
 
@@ -68,6 +66,7 @@ extension ViewController: UITableViewDataSource{
         
         cell?.textLabel?.text = characters?[indexPath.row].name
         cell?.detailTextLabel?.text = characters?[indexPath.row].species
+        cell?.imageView?.image = UIImage(systemName: "person.fill")
     
         
         return cell!
@@ -88,3 +87,22 @@ extension ViewController: UITableViewDelegate{
     
     
 }
+
+extension ViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let characters = characters else { return }
+        let needsFetch = indexPaths.contains { $0.row >= characters.count - 1 }
+        
+        if needsFetch {
+            restClient.show("/api/character/", page: currentPage + 1) { response in
+                self.characters?.append(contentsOf: response.results)
+            }
+            if currentPage < totalPages {
+                currentPage += 1
+                currentPageLabel.text = String(currentPage)
+            }
+        }
+    }
+}
+

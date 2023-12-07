@@ -17,33 +17,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yce-3t-Mpw">
-                                <rect key="frame" x="0.0" y="59" width="393" height="646"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="700"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUs-VB-Gln">
-                                <rect key="frame" x="100" y="744" width="193" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Next Page"/>
-                                <connections>
-                                    <action selector="nextPageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KDH-dg-qAr"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2BN-RX-sCA">
+                                <rect key="frame" x="120" y="782" width="153" height="20.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOA-gF-OQl">
+                                        <rect key="frame" x="0.0" y="0.0" width="7.666666666666667" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYs-97-P7O">
+                                        <rect key="frame" x="67.333333333333343" y="0.0" width="5" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbv-Vb-ub7">
+                                        <rect key="frame" x="132" y="0.0" width="21" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aUs-VB-Gln" secondAttribute="bottom" constant="39" id="3p5-db-MCz"/>
+                            <constraint firstItem="2BN-RX-sCA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="4MO-oQ-8jb"/>
                             <constraint firstItem="Yce-3t-Mpw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BgG-gq-J6Z"/>
-                            <constraint firstItem="aUs-VB-Gln" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="JvI-wO-STK"/>
-                            <constraint firstItem="aUs-VB-Gln" firstAttribute="top" secondItem="Yce-3t-Mpw" secondAttribute="bottom" constant="39" id="n3v-Dc-kkd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2BN-RX-sCA" secondAttribute="trailing" constant="120" id="D2H-Oi-eyA"/>
+                            <constraint firstItem="2BN-RX-sCA" firstAttribute="top" secondItem="Yce-3t-Mpw" secondAttribute="bottom" constant="23" id="PHe-5D-N9R"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2BN-RX-sCA" secondAttribute="bottom" constant="15.666666666666629" id="ilj-BO-XQs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yce-3t-Mpw" secondAttribute="trailing" id="n6c-9L-aDX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aUs-VB-Gln" secondAttribute="trailing" constant="100" id="oCY-bZ-kRW"/>
                             <constraint firstItem="Yce-3t-Mpw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sDB-UC-8L4"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="nextPageButton" destination="aUs-VB-Gln" id="7Dc-nm-5Bc"/>
+                        <outlet property="currentPageLabel" destination="BOA-gF-OQl" id="1Xo-9P-btI"/>
                         <outlet property="tableView" destination="Yce-3t-Mpw" id="7CC-FE-cIS"/>
+                        <outlet property="totalPagesLabel" destination="gbv-Vb-ub7" id="1EH-lA-UoW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
